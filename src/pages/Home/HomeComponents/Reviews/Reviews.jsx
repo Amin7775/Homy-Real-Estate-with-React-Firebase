@@ -5,8 +5,8 @@ import rating from "./../../../../assets/img/reviews/ratings-ezgif.com-webp-to-j
 
 const Reviews = () => {
   return (
-    <div className="container mx-auto relative border-b mb-10 ">
-      <div className="carousel w-full h-auto lg:h-60 py-10 lg:py-0 ">
+    <div className=" mx-auto relative border-b mb-10 flex justify-center">
+      <div className=" container  carousel w-full h-auto lg:h-60 py-10 lg:py-0 ">
         {/* 1 */}
         <div id="item1" className="carousel-item w-full">
           <div className="flex items-center  flex-col md:flex-row gap-1 md:gap-5 w-full">

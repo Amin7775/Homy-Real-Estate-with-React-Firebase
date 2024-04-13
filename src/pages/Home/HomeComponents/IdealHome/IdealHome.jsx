@@ -18,7 +18,7 @@ const IdealHome = () => {
           Get the ideal home for your family
         </h1>
         <p className="text-lg px-8 text-center lg:text-2xl font-light mt-3 lg:mt-6">
-          We've more than 7,45,000 apartments,place & plot
+          We have more than 7,45,000 apartments,place & plot
         </p>
         {/* search bar */}
         <div
