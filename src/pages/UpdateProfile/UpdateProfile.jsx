@@ -1,12 +1,11 @@
 import Navbar from "../../components/Navbar/Navbar";
 
-const Estates = () => {
+const UpdateProfile = () => {
     return (
         <div>
             <Navbar></Navbar>
-            This Is Estates
         </div>
     );
 };
 
-export default Estates;
+export default UpdateProfile;

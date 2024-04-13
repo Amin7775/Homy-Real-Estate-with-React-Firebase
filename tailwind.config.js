@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sofia: '"Sofia Sans", sans-serif', 
+      },
+      colors: {
+        'custom-text-1': '#F46926',
+   
+      }
+    }
   },
   plugins: [require("daisyui")],
 }
