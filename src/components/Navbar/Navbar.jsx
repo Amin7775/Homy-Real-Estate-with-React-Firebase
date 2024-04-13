@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from './../../assets/img/Logo.svg'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import './Navbar.css'
 
-const Navbar = () => {
-
+const Navbar = ({transparent}) => {
+    
 
     const links = <>
     <li><NavLink to={'/'}>Home</NavLink></li>
@@ -12,7 +13,7 @@ const Navbar = () => {
     </>
 
   return (
-    <div className="navbar bg-base-100 py-5 px-8">
+    <div className={transparent ?  'navbar bg-transparent py-5 px-8' : 'navbar bg-[#FEF8F4] py-5 px-8' } id="nav">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
