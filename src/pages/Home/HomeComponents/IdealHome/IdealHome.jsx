@@ -4,7 +4,7 @@ import shape from "./../../../../assets/img/HomePage/shape_ideal_home.svg";
 const IdealHome = () => {
   return (
     <div
-      className="bg-[#FEF8F4] h-screen  mb-10 border-2  overflow-hidden"
+      className="bg-[#FEF8F4] h-screen"
       style={{
         background: `url(${homeImg})`,
         backgroundPosition: "bottom",

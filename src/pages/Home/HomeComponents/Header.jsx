@@ -10,11 +10,10 @@ const Header = () => {
         <div className="absolute z-10 w-full">
           <Navbar transparent={true}></Navbar>
         </div>
-          <div className="z-0">
-        <HomeSlider></HomeSlider>
-          </div>
+        <div className="z-0">
+          <HomeSlider></HomeSlider>
+        </div>
       </div>
-      
     </div>
   );
 };
