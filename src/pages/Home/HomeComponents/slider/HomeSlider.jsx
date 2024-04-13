@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination} from "swiper/modules";
+import { EffectFade, Navigation, Pagination, Autoplay} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -19,13 +19,19 @@ const HomeSlider = () => {
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
         }}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
         spaceBetween={30}
         effect={"fade"}
+        lazy={true}
+        rewind={true}
         navigation={true}
         pagination={{
           clickable: true,
         }}
-        modules={[EffectFade, Navigation, Pagination]}
+        modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide>
