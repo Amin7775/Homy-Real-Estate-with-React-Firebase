@@ -6,13 +6,13 @@ import rating from "./../../../../assets/img/reviews/ratings-ezgif.com-webp-to-j
 const Reviews = () => {
   return (
     <div className="container mx-auto relative border-b mb-10 ">
-      <div className="carousel w-full h-auto lg:h-60 py-10 lg:py-0 px-2">
+      <div className="carousel w-full h-auto lg:h-60 py-10 lg:py-0 ">
         {/* 1 */}
         <div id="item1" className="carousel-item w-full">
           <div className="flex items-center  flex-col md:flex-row gap-1 md:gap-5 w-full">
             <div className="w-full md:w-1/5 flex flex-col items-center justify-center">
               <img className="rounded-full" src={review3} alt="Review 1" />
-              <p className="font-md text-2xl text-center">Rashed Kabir</p>
+              <p className="font-md text-2xl md:text-xl lg:text-2xl text-center">Rashed Kabir</p>
               <p className="text-slate-400 text-lg">Dhaka,BD</p>
             </div>
             <div className="w-full md:w-3/5 ">
@@ -21,7 +21,7 @@ const Reviews = () => {
                 experience.I Highly recommend this agency!
               </p>
             </div>
-            <div className="w-full md:w-1/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-1/5 flex flex-col justify-center items-center pr-0 md:pr-5 lg:pr-0">
               <img src={rating} alt="" />
               <p className="text-slate-400 text-lg mt-2">4.7 Rating</p>
             </div>
@@ -32,7 +32,7 @@ const Reviews = () => {
           <div className="flex items-center  flex-col md:flex-row gap-1 md:gap-5 w-full">
             <div className="w-full md:w-1/5 flex flex-col items-center justify-center">
               <img className="rounded-full" src={review2} alt="Review 1" />
-              <p className="font-md text-2xl text-center">Sufia Rena</p>
+              <p className="font-md text-2xl md:text-xl lg:text-2xl text-center">Sufia Rena</p>
               <p className="text-slate-400 text-lg">Dhaka,BD</p>
             </div>
             <div className="w-full md:w-3/5 ">
@@ -41,7 +41,7 @@ const Reviews = () => {
                 experience. Highly recommended agency!
               </p>
             </div>
-            <div className="w-full md:w-1/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-1/5 flex flex-col justify-center items-center pr-0 md:pr-5 lg:pr-0">
               <img src={rating} alt="" />
               <p className="text-slate-400 text-lg mt-2">4.9 Rating</p>
             </div>
@@ -52,7 +52,7 @@ const Reviews = () => {
           <div className="flex items-center  flex-col md:flex-row gap-1 md:gap-5 w-full">
             <div className="w-full md:w-1/5 flex flex-col items-center justify-center">
               <img className="rounded-full" src={review1} alt="Review 1" />
-              <p className="font-md text-2xl text-center">Jonathan Mile</p>
+              <p className="font-md text-2xl md:text-xl lg:text-2xl text-center">Jonathan Mile</p>
               <p className="text-slate-400 text-lg">Milan,Italy</p>
             </div>
             <div className="w-full md:w-3/5 ">
@@ -61,7 +61,7 @@ const Reviews = () => {
                 experience. Highly recommended agency!
               </p>
             </div>
-            <div className="w-full md:w-1/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-1/5 flex flex-col justify-center items-center pr-0 md:pr-5 lg:pr-0">
               <img src={rating} alt="" />
               <p className="text-slate-400 text-lg mt-2">4.7 Rating</p>
             </div>
