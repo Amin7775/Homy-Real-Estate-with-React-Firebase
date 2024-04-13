@@ -14,7 +14,7 @@ const Header = () => {
         <HomeSlider></HomeSlider>
           </div>
       </div>
-      This is home header
+      
     </div>
   );
 };
