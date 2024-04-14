@@ -1,4 +1,5 @@
 import Advantages from "./HomeComponents/Advantages/Advantages";
+import ContactUs from "./HomeComponents/ContactUs/ContactUs";
 import ExploreLocation from "./HomeComponents/ExploreLocation/ExploreLocation";
 import Header from "./HomeComponents/Header";
 import HomeEstates from "./HomeComponents/HomeEstates/HomeEstates";
@@ -18,7 +19,7 @@ const Home = () => {
         <ExploreLocation></ExploreLocation>
       </div>
     <HomeEstates></HomeEstates>
-
+    <ContactUs></ContactUs>
     </div>
   );
 };
