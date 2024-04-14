@@ -1,0 +1,37 @@
+[
+    {
+      "location_name": "Dhanmondi, Dhaka",
+      "image": "https://i.ibb.co/S7thZ5Q/dhanmondi.jpg",
+      "listing" : "314 Properties"
+    },
+    {
+      "location_name": "Gulshan, Dhaka",
+      "image": "https://i.ibb.co/nfNJ9rx/gulshan.jpg",
+      "listing" : "94 Properties"
+    },
+    {
+      "location_name": "Uttara, Dhaka",
+      "image": "https://i.ibb.co/4FdwYqn/Uttara.jpg",
+      "listing" : "453 Properties"
+    },
+    {
+      "location_name": "Mirpur, Dhaka",
+      "image": "https://i.ibb.co/0cC8HVH/Mirpur.jpg",
+      "listing" : "545 Properties"
+    },
+    {
+      "location_name": "Mohammadpur, Dhaka",
+      "image": "https://i.ibb.co/6Jshx9M/mohommadpur.jpg",
+      "listing" : "978 Properties"
+    },
+    {
+      "location_name": "Bashundhara R/A, Dhaka",
+      "image": "https://i.ibb.co/KFtB3qG/navana-lupine-10jpg-615010d0adaf6-2021-09-26-5.jpg",
+      "listing" : "534 Properties"
+    },
+    {
+      "location_name": "Banani, Dhaka",
+      "image": "https://i.ibb.co/TMKTWkC/Banani.jpg",
+      "listing" : "123 Properties"
+    }
+  ]
