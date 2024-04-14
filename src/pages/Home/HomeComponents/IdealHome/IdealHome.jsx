@@ -1,3 +1,4 @@
+// import TitleText from "../../../../components/TitleText/TitleText";
 import homeImg from "./../../../../assets/img/HomePage/idealhome.svg";
 import shape from "./../../../../assets/img/HomePage/shape_ideal_home.svg";
 
@@ -20,6 +21,7 @@ const IdealHome = () => {
         <p className="text-lg px-8 text-center lg:text-2xl font-light mt-3 lg:mt-6">
           We have more than 7,45,000 apartments,place & plot
         </p>
+        
         {/* search bar */}
         <div
           className="flex flex-col lg:flex-row justify-center items-center w-[95%] lg:w-[70%] p-6 mt-5 lg:mt-14"
