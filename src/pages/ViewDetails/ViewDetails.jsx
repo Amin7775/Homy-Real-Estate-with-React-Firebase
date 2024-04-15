@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import BannerViewDetails from "./ViewDetailsComponents/BannerViewDetails/BannerViewDetails";
+import ViewDetailsFeature from "./ViewDetailsComponents/ViewDetailsFeatures/ViewDetailsFeature";
 
 const ViewDetails = () => {
   const paramsData = useParams();
@@ -34,14 +35,17 @@ const ViewDetails = () => {
   } = estate;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen border-b-2 ">
       <Navbar></Navbar>
       {/* Banner */}
       <div className="">
       <BannerViewDetails estate={estate}></BannerViewDetails>
 
       </div>
-      <div className="pt-40 pb-10 bg-[#FEF8F4]">dsfjds</div>
+      <div className="pt-32 pb-10 bg-[#FEF8F4]">
+     
+      <ViewDetailsFeature estate={estate}></ViewDetailsFeature>
+      </div>
     </div>
   );
 };
