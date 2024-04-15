@@ -65,7 +65,7 @@ const EstatesCard = ({ estate }) => {
             <p className=" font-bold">{price} </p>
             </div>
             <div>
-                <Link to={`/view/${estate_title}`}>
+                <Link to={`/viewdetails/${id}`}>
                 <button className=" rounded-full py-4 px-4 btn h-full  bg-black hover:bg-[#F46926]">
                     <MdArrowOutward className="text-white text-xl w-full h-full"></MdArrowOutward>
                 </button>
