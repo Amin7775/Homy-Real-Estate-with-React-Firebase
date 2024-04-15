@@ -30,7 +30,7 @@ const HomeEstates = () => {
         <div className="flex justify-center mt-8 md:mt-14">
             <Link to={'/estates'}>
             <button className="bg-custom-text-1 text-white hover:bg-black tra px-8 py-3 h-full rounded-xl text-xl ease-linear duration-200">
-                View All
+                View All Estates
             </button>
             </Link>
         </div>
