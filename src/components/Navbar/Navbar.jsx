@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "./../../assets/img/Logo.svg";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
@@ -60,7 +60,11 @@ const Navbar = ({ transparent }) => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {/* btn */}
+        <Link to={'/login'}>
+        <p className="btn">Button</p>
+        </Link>
+        {/* dropdown */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
