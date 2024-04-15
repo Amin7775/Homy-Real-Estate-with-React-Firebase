@@ -1,3 +1,4 @@
+import Navbar from "../../components/Navbar/Navbar";
 import Advantages from "./HomeComponents/Advantages/Advantages";
 import ContactUs from "./HomeComponents/ContactUs/ContactUs";
 import ExploreLocation from "./HomeComponents/ExploreLocation/ExploreLocation";
@@ -9,6 +10,7 @@ import Reviews from "./HomeComponents/Reviews/Reviews";
 const Home = () => {
   return (
     <div>
+      <Navbar transparent={false}></Navbar>
       <Header></Header>
       <IdealHome></IdealHome>
       <div className="max-w-[95%] mx-auto">

@@ -2,8 +2,9 @@ import Navbar from "../../components/Navbar/Navbar";
 
 const Estates = () => {
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="min-h-screen">
+            <Navbar transparent={false}></Navbar>
+
             This Is Estates
         </div>
     );
