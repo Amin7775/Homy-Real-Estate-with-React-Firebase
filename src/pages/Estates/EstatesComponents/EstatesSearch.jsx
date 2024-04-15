@@ -2,7 +2,7 @@ import shapeImg from "./../../../assets/img/EstatePage/Estate_Form_shape.svg";
 
 const EstatesSearch = () => {
     return (
-        <div className="w-1/4">
+        <div className="w-full lg:w-1/4">
           <div
             className="max-w-full h-auto p-4"
             style={{ background: `url(${shapeImg})` }}

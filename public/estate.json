@@ -1,6 +1,6 @@
 [
   {
-    "estate_title": "SOVEREIGN",
+    "estate_title": "Sovereign",
     "id": "001",
     "segment_name": "Apartment",
     "description": "Experience luxury living in this spacious apartment located in the prestigious area of Dhanmondi. Featuring modern amenities and breathtaking views.",
@@ -33,7 +33,7 @@
     "Card_image": "https://i.ibb.co/2cqCfcc/SOVEREIGN-Card.jpg"
   },
   {
-    "estate_title": "TRANQUILITY",
+    "estate_title": "Tranquility",
     "id": "002",
     "segment_name": "Villa",
     "description": "Discover elegance and sophistication in this executive villa located in the upscale neighborhood of Gulshan. Perfect for families seeking luxury living.",
@@ -90,7 +90,7 @@
     "Card_image": "https://i.ibb.co/4FdwYqn/Uttara.jpg"
   },
   {
-    "estate_title": "AMORA",
+    "estate_title": "Amora",
     "id": "004",
     "segment_name": "Apartment",
     "description": "Experience contemporary living in this stylish apartment located in the vibrant area of Mirpur. Perfect for young professionals and couples.",
@@ -194,7 +194,7 @@
     "Card_image": "https://i.ibb.co/TMKTWkC/Banani.jpg"
   },
   {
-    "estate_title": "ASTER VILLE",
+    "estate_title": "Aster Ville",
     "id": "008",
     "segment_name": "Villa",
     "description": "Discover elegance and luxury in this spacious villa located in the peaceful neighborhood of Uttara. Features stunning architecture and lush surroundings.",

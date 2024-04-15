@@ -5,7 +5,6 @@ import EstatesSearch from "./EstatesComponents/EstatesSearch";
 
 const Estates = () => {
   const [allEstates, setAllEstates] = useState([]);
-  const [modifiedData, setModifiedData] = useState([]);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
@@ -18,11 +17,11 @@ const Estates = () => {
     <div className="min-h-screen bg-[#F4EDE8]">
       <Navbar transparent={false}></Navbar>
       {/* main */}
-      <div className="max-w-[90%] mx-auto mt-24 pb-16  flex gap-12">
+      <div className="max-w-[90%] mx-auto mt-6 lg:mt-24 pb-16  flex flex-col-reverse lg:flex-row  gap-12 flex-wrap">
         {/* form */}
         <EstatesSearch></EstatesSearch>
         {/* cards container*/}
-        <div className="flex-1 ">
+        <div className="lg:flex-1 md:w-full">
           {/* text */}
           <div className="flex items-center justify-between pt-3 pb-6 px-2">
             {showAll ? (
@@ -49,7 +48,7 @@ const Estates = () => {
             </div>
           </div>
           {/* cards */}
-          <div className=" grid grid-cols-3 gap-10 ">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 ">
             {showAll
               ? allEstates?.map((estate) => (
                   <EstatesCard key={estate.id} estate={estate}></EstatesCard>
