@@ -25,9 +25,9 @@ const LoginTopText = () => {
                 Welcome Back!
               </h1>
               <p className="text-lg md:text-2xl text-center font-light mt-3">
-                Still don't have an account?{" "}
+                Still don't have an account? 
                 <Link to={"/register"}>
-                  <span className="text-custom-text-1">Register</span>
+                  <span className="text-custom-text-1"> Register</span>
                 </Link>
               </p>
             </div>

@@ -4,8 +4,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import LoginTopText from "./LoginComponents/LoginTopText";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { FaRegEye,FaRegEyeSlash  } from "react-icons/fa6";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -46,12 +50,20 @@ const Login = () => {
                   <label className="text-black opacity-50 text-xl">
                     Password
                   </label>
-                  <input
-                    type="password"
-                    className="border px-5 text-xl py-2 rounded-lg bg-[#F5F5F5] "
-                    {...register("password", { required: true })}
-                    placeholder="Enter Your Password Here"
-                  />
+                  {/* password field modification */}
+                  <div className="relative">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      className="border w-full px-5 text-xl py-2 rounded-lg bg-[#F5F5F5] "
+                      {...register("password", { required: true })}
+                      placeholder="Enter Your Password Here"
+                    />
+                    {   !showPassword ?
+                        <FaRegEye onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"></FaRegEye>
+                        :
+                        <FaRegEyeSlash  onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"></FaRegEyeSlash >
+                    }
+                  </div>
                   {errors.password && <span>Invalid password</span>}
                 </div>
                 {/* checkbox and forget password */}
@@ -88,13 +100,13 @@ const Login = () => {
               <div className="grid gap-4 md:gap-6 lg:gap-10 grid-cols-1 md:grid-cols-2">
                 {/* google */}
                 <button className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
-                    <FcGoogle ></FcGoogle>
-                    Login with Google
+                  <FcGoogle></FcGoogle>
+                  Login with Google
                 </button>
                 {/* facebook */}
                 <button className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
-                    <FaFacebook className="text-[#455FFE]"></FaFacebook>
-                    Login with Facebook
+                  <FaFacebook className="text-[#455FFE]"></FaFacebook>
+                  Login with Facebook
                 </button>
               </div>
             </div>
