@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
   console.log(user, "from nav");
   const links = (
     <>
@@ -67,34 +67,31 @@ const Navbar = () => {
       <div className="navbar-end">
         {/* user profile */}
         {user ? (
-          <div className="dropdown dropdown-end tooltip tooltip-left" data-tip={`${user.displayName}`}>
+         
+          <div className="dropdown dropdown-end ">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="btn btn-ghost btn-circle avatar tooltip tooltip-left mt-2 mr-3"
+              data-tip={`${user.displayName}`}
             >
-              <div className="w-10 rounded-full">
+              <div className="w-full rounded-full h-full ">
                 <img
-                  title={user.displayName}
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  alt="Tailwind CSS Navbar component"
+                  src={user.photoURL ? `${user.photoURL}` : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                 />
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content drop-shadow-md mt-1 z-[1] p-2 shadow bg-[#FEF8F4] rounded-xl w-52"
             >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
+              <li className=" text-xl font-medium"><a>Profile</a></li>
+              <li className=" text-xl font-medium">
                 <a>Settings</a>
               </li>
-              <li>
-                <a>Logout</a>
+              <li className=" text-xl font-medium">
+                <a onClick={()=>logOut()}>Logout</a>
               </li>
             </ul>
           </div>

@@ -9,11 +9,12 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import RegisterTopText from "./RegisterComponents/RegisterTopText";
 import { AuthContext } from "../../provider/AuthProvider";
 
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   // context
-  const { createUser } = useContext(AuthContext);
+  const { createUser,updateUserAfterRegister } = useContext(AuthContext);
 
   const {
     register,
@@ -29,9 +30,15 @@ const Register = () => {
     const password = data.password;
     console.log(name,photoURL,email,password);
     // createUser
-    createUser(name,photoURL,email,password)
+    createUser(email,password)
     .then((result)=>{
+    //  update user
+    updateUserAfterRegister(name,photoURL)
+    .then(()=>{
+      console.log('updated')
       console.log(result.user)
+      
+    })
     })
     .catch(error => {
       console.log(error.message)
@@ -126,10 +133,7 @@ const Register = () => {
                       Keep me logged in
                     </label>
                   </div>
-                  {/* forget password */}
-                  {/* <p className="cursor-pointer  text-black opacity-50">
-                    Forget password ?
-                  </p> */}
+                
                 </div>
                 <input
                   type="submit"
