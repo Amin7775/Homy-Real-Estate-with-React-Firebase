@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import EstatesCard from "../../components/EstatesCard/EstatesCard";
 import { getEstateData } from "../../utilities/localStorage";
 import { TbMoodEmpty } from "react-icons/tb";
@@ -7,6 +8,9 @@ const Favorites = () => {
     console.log(favoritesData)
   return (
     <div className="bg-[#F4EDE8] min-h-screen border-b py-10">
+      <Helmet>
+        <title>Homy - Favorites</title>
+      </Helmet>
       <h1 className="text-4xl lg:text-6xl font-bold text-center max-w-[80%] leading-relaxed lg:max-w-[45%] mx-auto py-5">
         Favorite Estates
       </h1>

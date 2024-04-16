@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Advantages from "./HomeComponents/Advantages/Advantages";
 import ContactUs from "./HomeComponents/ContactUs/ContactUs";
 import ExploreLocation from "./HomeComponents/ExploreLocation/ExploreLocation";
@@ -9,6 +10,9 @@ import Reviews from "./HomeComponents/Reviews/Reviews";
 const Home = () => {
   return (
     <div>
+       <Helmet>
+        <title>Homy</title>
+      </Helmet>
       <Header></Header>
       <IdealHome></IdealHome>
       <div className="max-w-[95%] mx-auto">

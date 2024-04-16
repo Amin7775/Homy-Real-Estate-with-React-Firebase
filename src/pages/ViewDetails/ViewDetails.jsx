@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import BannerViewDetails from "./ViewDetailsComponents/BannerViewDetails/BannerViewDetails";
 import ViewDetailsFeature from "./ViewDetailsComponents/ViewDetailsFeatures/ViewDetailsFeature";
+import { Helmet } from "react-helmet-async";
 
 const ViewDetails = () => {
   const paramsData = useParams();
@@ -36,6 +37,9 @@ const ViewDetails = () => {
 
   return (
     <div className="min-h-screen border-b-2 ">
+      <Helmet>
+        <title>Homy - {`${estate_title}`} Details</title>
+      </Helmet>
       {/* Banner */}
       <div className="">
         <BannerViewDetails estate={estate}></BannerViewDetails>

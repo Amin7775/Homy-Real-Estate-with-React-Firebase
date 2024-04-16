@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import EstatesCard from "../../components/EstatesCard/EstatesCard";
 import EstatesSearch from "./EstatesComponents/EstatesSearch";
+import { Helmet } from "react-helmet-async";
 
 const Estates = () => {
   const [allEstates, setAllEstates] = useState([]);
@@ -15,6 +16,9 @@ const Estates = () => {
 
   return (
     <div className="min-h-screen bg-[#F4EDE8]">
+      <Helmet>
+        <title>Homy - All Estates</title>
+      </Helmet>
       {/* main */}
       <div className="max-w-[90%] mx-auto pt-8 lg:pt-24 pb-16  flex flex-col-reverse lg:flex-row  gap-12 flex-wrap">
         {/* form */}

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import UpdateProfileViewImage from "./UpdateProfileComps/UpdateProfileViewImage";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
 //   const [showPassword, setShowPassword] = useState(false);
@@ -35,6 +36,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="min-h-screen bg-[#F4EDE8] pb-12">
+      <Helmet>
+        <title>Homy - Update Profile</title>
+      </Helmet>
       <div className=" min-h-[95vh] rounded-3xl overflow-hidden w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto   flex justify-center items-center pt-10">
         <div className=" w-full bg-white rounded-3xl ">
           <div className="max-w-[80%] py-14 mx-auto">
