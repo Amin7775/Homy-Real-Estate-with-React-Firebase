@@ -8,10 +8,14 @@ import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import RegisterTopText from "./RegisterComponents/RegisterTopText";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
 const Register = () => {
+  const location = useLocation()
+  const navigation = useNavigate()
+
   const [showPassword, setShowPassword] = useState(false);
 
   // context
@@ -38,6 +42,7 @@ const Register = () => {
     .then(()=>{
       console.log('updated')
       console.log(result.user)
+      navigation(location?.state ? location?.state : '/')
       window.location.reload()
     })
     })
@@ -48,10 +53,16 @@ const Register = () => {
 // google login
   const handleGoogleLogin = () =>{
     googleLogin()
+    .then(()=>{
+      navigation(location?.state ? location?.state : '/')
+    })
   }
   // twitter login
   const handleTwitter = () =>{
     twitterLogin()
+    .then(()=>{
+      navigation(location?.state ? location?.state : '/')
+    })
   }
 
   console.log(watch("example"));

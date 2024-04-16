@@ -20,10 +20,10 @@ const UpdateProfile = () => {
   const onSubmit = (data) => {
     const name = data.name;
     const photoURL = data.photoURL;
-    const phoneNumber = data.phoneNumber;
+    // const phoneNumber = data.phoneNumber;
    
     // console.log(password)
-    updateUserFromProfile(name,photoURL,phoneNumber)
+    updateUserFromProfile(name,photoURL)
     .then(()=>{
         console.log("SUccess")
         window.location.reload()
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
                   />
                 </div>
                 {/* photoURL */}
-                <div className="flex flex-col gap-2 mb-3">
+                {/* <div className="flex flex-col gap-2 mb-3">
                   <label className="text-black opacity-50 text-xl">
                     Phone Number
                   </label>
@@ -80,10 +80,10 @@ const UpdateProfile = () => {
                     type="text"
                     className="border px-5 text-xl py-2 rounded-lg bg-[#F5F5F5] "
                     {...register("phoneNumber")}
-                    placeholder={auth?.currentUser?.phoneNumber == null ? "Add Here" : undefined}
-                    defaultValue={auth?.currentUser?.phoneNumber != null ? previousUser?.phoneNumber : undefined}
+                    // placeholder={auth?.currentUser?.phoneNumber == null ? "Add Here" : undefined}
+                    // defaultValue={auth?.currentUser?.phoneNumber != null ? previousUser?.phoneNumber : undefined}
                   />
-                </div>
+                </div> */}
                 
 
                 <input

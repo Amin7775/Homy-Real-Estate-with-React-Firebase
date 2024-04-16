@@ -5,8 +5,12 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { FaRegEye,FaRegEyeSlash, FaTwitter  } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const location = useLocation()
+  const navigation = useNavigate()
+
   const [showPassword, setShowPassword] = useState(false);
   const { loginUser,googleLogin ,twitterLogin } = useContext(AuthContext);
   const {
@@ -25,6 +29,7 @@ const Login = () => {
     loginUser(email,password)
     .then(result => {
       console.log(result.user)
+      navigation(location?.state ? location?.state : '/')
     })
     .catch(error => {
       console.log(error.message)
@@ -34,10 +39,16 @@ const Login = () => {
   // google login
   const handleGoogleLogin = () =>{
     googleLogin()
+    .then(()=>{
+      navigation(location?.state ? location?.state : '/')
+    })
   }
   // twitter login
   const handleTwitter = () =>{
     twitterLogin()
+    .then(()=>{
+      navigation(location?.state ? location?.state : '/')
+    })
   }
 
   console.log(watch("example")); // watch input value by passing the name of it

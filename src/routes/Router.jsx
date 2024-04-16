@@ -7,6 +7,7 @@ import ViewDetails from "../pages/ViewDetails/ViewDetails"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
 import Favorites from "../pages/Favorites/Favorites"
+import PrivateRoute from "./PrivateRoute"
 
 
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/updateProfile',
-                element:<UpdateProfile></UpdateProfile>
+                element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
             },
             {
                 path:`/viewdetails/:id`,
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/favorites',
-                element:<Favorites></Favorites>
+                element:<PrivateRoute><Favorites></Favorites></PrivateRoute>
             }
         ]
     }
