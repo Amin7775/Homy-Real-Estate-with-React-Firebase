@@ -38,7 +38,7 @@ const HomeSlider = () => {
           <div
             className="parallax-bg relative"
             style={{
-              "background-image": `url(${slider3})`,
+              background: `url(${slider3})`,
               height: "100vh",
               display: "block",
               backgroundPosition: "center",
@@ -71,7 +71,7 @@ const HomeSlider = () => {
           <div
             className="parallax-bg relative"
             style={{
-              "background-image": `url(${slider4})`,
+              background: `url(${slider4})`,
               height: "100vh",
               display: "block",
               backgroundPosition: "center",
@@ -102,7 +102,7 @@ const HomeSlider = () => {
           <div
             className="parallax-bg relative"
             style={{
-              "background-image": `url(${slider5})`,
+              background: `url(${slider5})`,
               height: "100vh",
               display: "block",
               backgroundPosition: "center",
