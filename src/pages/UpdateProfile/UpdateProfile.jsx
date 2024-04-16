@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 const UpdateProfile = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            update
         </div>
     );
 };

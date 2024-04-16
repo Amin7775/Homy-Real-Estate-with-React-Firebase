@@ -15,9 +15,8 @@ const Estates = () => {
 
   return (
     <div className="min-h-screen bg-[#F4EDE8]">
-      <Navbar transparent={false}></Navbar>
       {/* main */}
-      <div className="max-w-[90%] mx-auto mt-6 lg:mt-24 pb-16  flex flex-col-reverse lg:flex-row  gap-12 flex-wrap">
+      <div className="max-w-[90%] mx-auto pt-8 lg:pt-24 pb-16  flex flex-col-reverse lg:flex-row  gap-12 flex-wrap">
         {/* form */}
         <EstatesSearch></EstatesSearch>
         {/* cards container*/}

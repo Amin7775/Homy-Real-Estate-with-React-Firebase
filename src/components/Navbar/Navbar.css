@@ -4,3 +4,24 @@
   z-index: 1000;
   
 }
+
+#sidebar a:hover{
+  color: #F46926;
+  background-color: transparent;
+}
+
+
+#sidebar a.active {
+  color: #F46926;
+  border: none;
+  background-color: transparent;
+}
+
+
+@media screen and (max-width: 1024px) {
+  #sidebar a.active {
+    color: white;
+    border: none;
+    background-color: #F46926;
+  }
+}

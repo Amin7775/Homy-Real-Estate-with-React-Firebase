@@ -1,18 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../../assets/img/Logo.svg";
-import { useEffect, useState } from "react";
 import "./Navbar.css";
 
-const Navbar = ({ transparent }) => {
+const Navbar = () => {
   const links = (
     <>
-      <li>
-        <NavLink to={"/"}>Home</NavLink>
+      <li className="text-xl font-medium " >
+        <NavLink  to={"/"}>Home</NavLink>
       </li>
-      <li>
+      <li className="text-xl font-medium">
         <NavLink to={"/estates"}>Estates</NavLink>
       </li>
-      <li>
+      <li className="text-xl font-medium">
         <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       </li>
     </>
@@ -21,9 +20,7 @@ const Navbar = ({ transparent }) => {
   return (
     <div
       className={
-        transparent
-          ? "navbar bg-transparent py-5 px-8 sticky"
-          : "navbar bg-[#FEF8F4] py-5 px-8 sticky opacity-95 drop-shadow-lg"
+        "navbar bg-[#FEF8F4] py-5 lg:px-8 sticky opacity-95 drop-shadow-lg "
       }
       id="nav"
     >
@@ -52,27 +49,31 @@ const Navbar = ({ transparent }) => {
             {links}
           </ul>
         </div> */}
-        <a className="btn btn-ghost text-xl">
-          <img src={logo} alt="" />
-        </a>
+        <p className="btn btn-ghost">
+          <Link to={'/'}>
+          <img className="" src={logo} alt="" />
+          </Link>
+        </p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-1 pt-2" id="sidebar">
+          {links}
+        </ul>
       </div>
       <div className="navbar-end">
         {/* btn */}
-        <Link to={'/login'}>
-        <p className="btn">Button</p>
+        <Link to={"/login"}>
+          <p className="btn">Button</p>
         </Link>
         {/* dropdown */}
-        <div className="dropdown">
+        <div className="dropdown bg-custom-text-1 rounded-md">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="white"
             >
               <path
                 strokeLinecap="round"
@@ -84,7 +85,8 @@ const Navbar = ({ transparent }) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0 left-auto"
+            className="menu menu-sm dropdown-content mt-1 drop-shadow-lg z-[1] p-2  rounded-xl w-52 right-0 left-auto bg-[#FEF8F4] border "
+            id="sidebar"
           >
             {links}
           </ul>

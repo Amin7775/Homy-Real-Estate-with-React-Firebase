@@ -10,7 +10,6 @@ import Reviews from "./HomeComponents/Reviews/Reviews";
 const Home = () => {
   return (
     <div>
-      <Navbar transparent={false}></Navbar>
       <Header></Header>
       <IdealHome></IdealHome>
       <div className="max-w-[95%] mx-auto">

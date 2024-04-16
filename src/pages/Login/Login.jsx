@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import Navbar from "../../components/Navbar/Navbar";
 // import { Link } from "react-router-dom";
 import LoginTopText from "./LoginComponents/LoginTopText";
 import { FaFacebook } from "react-icons/fa6";
@@ -23,8 +22,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-[#F4EDE8] pb-12">
-      <Navbar></Navbar>
-      <div className=" min-h-[95vh] rounded-3xl overflow-hidden w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto   flex justify-center items-center mt-10">
+      <div className=" min-h-[95vh] rounded-3xl overflow-hidden w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto   flex justify-center items-center pt-10">
         <div className=" w-full bg-white rounded-3xl ">
           <div className="max-w-[80%] py-14 mx-auto">
             <LoginTopText></LoginTopText>
@@ -88,6 +86,7 @@ const Login = () => {
                 <input
                   type="submit"
                   className="btn w-full bg-custom-text-1 hover:bg-[#F34126] py-3 h-full text-white text-2xl font-normal rounded-lg"
+                  value={"Login"}
                 />
               </form>
               {/* or */}

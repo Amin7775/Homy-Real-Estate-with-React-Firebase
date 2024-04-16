@@ -36,7 +36,7 @@ const ViewDetails = () => {
 
   return (
     <div className="min-h-screen border-b-2 ">
-      <Navbar></Navbar>
+     
       {/* Banner */}
       <div className="">
       <BannerViewDetails estate={estate}></BannerViewDetails>
