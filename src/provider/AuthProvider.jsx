@@ -7,7 +7,9 @@ import {
   signOut,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  updateEmail,
+  updatePassword,
 } from "firebase/auth";
 import { TwitterAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
@@ -30,20 +32,37 @@ const AuthProvider = ({ children }) => {
       photoURL: photoURL,
     });
   };
-  // sign in with email and password
-  const loginUser = (email,password) =>{
-    return signInWithEmailAndPassword(auth,email,password)
+  // update current user from profile page
+  const updateUserFromProfile = (name, photoURL,phoneNumber) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoURL,
+      phoneNumber : phoneNumber
+    });
+  };
+  // update email
+  const updateEmailAddress = (email) =>{
+    return updateEmail(auth.currentUser,email)
   }
+  // update password
+  const updateToNewPassword = (password) => {
+    return updatePassword(auth.currentUser,password)
+  }
+
+  // sign in with email and password
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   // google login
   const googleLogin = () => {
-    return signInWithPopup(auth,googleProvider)
-  }
+    return signInWithPopup(auth, googleProvider);
+  };
 
   //twitter login
-  const twitterLogin = () =>{
-    return signInWithPopup(auth,twitterProvider)
-  }
+  const twitterLogin = () => {
+    return signInWithPopup(auth, twitterProvider);
+  };
 
   // User State
   useEffect(() => {
@@ -66,7 +85,11 @@ const AuthProvider = ({ children }) => {
     logOut,
     loginUser,
     googleLogin,
-    twitterLogin
+    twitterLogin,
+    auth,
+    updateEmailAddress,
+    updateToNewPassword,
+    updateUserFromProfile
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

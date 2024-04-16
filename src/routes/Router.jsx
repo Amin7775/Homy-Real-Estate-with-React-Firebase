@@ -6,6 +6,7 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile"
 import ViewDetails from "../pages/ViewDetails/ViewDetails"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
+import Favorites from "../pages/Favorites/Favorites"
 
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/favorites',
+                element:<Favorites></Favorites>
             }
         ]
     }

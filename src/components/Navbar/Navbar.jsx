@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       </li>
       <li className="text-xl font-medium">
-        <NavLink to={"/updateProfile"}>Favorites</NavLink>
+        <NavLink to={"/favorites"}>Favorites</NavLink>
       </li>
     </>
   );
