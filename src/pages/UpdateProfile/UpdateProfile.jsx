@@ -78,19 +78,18 @@ const UpdateProfile = () => {
                     defaultValue={`${auth?.currentUser?.photoURL}`}
                   />
                 </div>
-                {/* photoURL */}
-                {/* <div className="flex flex-col gap-2 mb-3">
-                  <label className="text-black opacity-50 text-xl">
-                    Phone Number
-                  </label>
+                {/* email */}
+                <div className="flex flex-col gap-2 mb-3">
+                  <label className="text-black opacity-50 text-xl">Email (view only)</label>
                   <input
-                    type="text"
+                    type="email"
                     className="border px-5 text-xl py-2 rounded-lg bg-[#F5F5F5] "
-                    {...register("phoneNumber")}
-                    // placeholder={auth?.currentUser?.phoneNumber == null ? "Add Here" : undefined}
-                    // defaultValue={auth?.currentUser?.phoneNumber != null ? previousUser?.phoneNumber : undefined}
+                    {...register("email")}
+                    defaultValue={`${auth?.currentUser?.email}`}
+                    disabled
                   />
-                </div> */}
+                  
+                </div>
                 
 
                 <input
