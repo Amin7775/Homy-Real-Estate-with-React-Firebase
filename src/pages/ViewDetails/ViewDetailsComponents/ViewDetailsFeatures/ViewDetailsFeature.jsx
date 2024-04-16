@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdOutlineDone } from "react-icons/md";
 import { RxDividerHorizontal } from "react-icons/rx";
 import { getEstateData, setEstatesData } from "../../../../utilities/localStorage";
+import { toast } from "react-toastify";
 
 const ViewDetailsFeature = ({ estate }) => {
   const [showAll, setShowAll] = useState(false);
@@ -28,8 +29,10 @@ const ViewDetailsFeature = ({ estate }) => {
     const checkEstateExists = getData?.find(singleEstate => singleEstate.id == id)
 
     if(checkEstateExists){
-      console.log("Exists")
+      toast("This estate already exists in favorites");
+         
     }else{
+      toast("Successfully added this estate in favorites");
       setEstatesData(estate)
     }
   }

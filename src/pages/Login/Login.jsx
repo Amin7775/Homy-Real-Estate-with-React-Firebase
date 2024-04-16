@@ -3,16 +3,17 @@ import { useForm } from "react-hook-form";
 import LoginTopText from "./LoginComponents/LoginTopText";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
-import { FaRegEye,FaRegEyeSlash, FaTwitter  } from "react-icons/fa6";
+import { FaRegEye, FaRegEyeSlash, FaTwitter } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const location = useLocation()
-  const navigation = useNavigate()
+  const location = useLocation();
+  const navigation = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser,googleLogin ,twitterLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, twitterLogin } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -21,37 +22,43 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    
     const email = data.email;
     const password = data.password;
-    
+
     // login
-    loginUser(email,password)
-    .then(result => {
-      console.log(result.user)
-      navigation(location?.state ? location?.state : '/')
-    })
-    .catch(error => {
-      console.log(error.message)
-    })
+    loginUser(email, password)
+      .then((result) => {
+        // console.log(result.user);
+        toast("Login Successful!");
+        setTimeout(() => {
+          navigation(location?.state ? location?.state : "/");
+        }, 1500);
+      })
+      .catch((error) => {
+        toast(error.message)
+      });
   };
 
   // google login
-  const handleGoogleLogin = () =>{
-    googleLogin()
-    .then(()=>{
-      navigation(location?.state ? location?.state : '/')
-    })
-  }
+  const handleGoogleLogin = () => {
+    googleLogin().then(() => {
+      toast("Google Login Successful!");
+      setTimeout(() => {
+        navigation(location?.state ? location?.state : "/");
+      }, 1500);
+    });
+  };
   // twitter login
-  const handleTwitter = () =>{
-    twitterLogin()
-    .then(()=>{
-      navigation(location?.state ? location?.state : '/')
-    })
-  }
+  const handleTwitter = () => {
+    twitterLogin().then(() => {
+      toast("Twitter Login Successful!");
+      setTimeout(() => {
+        navigation(location?.state ? location?.state : "/");
+      }, 1500);
+    });
+  };
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  // console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <div className="min-h-screen bg-[#F4EDE8] pb-12">
@@ -84,16 +91,22 @@ const Login = () => {
                   {/* password field modification */}
                   <div className="relative">
                     <input
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       className="border w-full px-5 text-xl py-2 rounded-lg bg-[#F5F5F5] "
                       {...register("password", { required: true })}
                       placeholder="Enter Your Password Here"
                     />
-                    {   !showPassword ?
-                        <FaRegEye onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"></FaRegEye>
-                        :
-                        <FaRegEyeSlash  onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"></FaRegEyeSlash >
-                    }
+                    {!showPassword ? (
+                      <FaRegEye
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"
+                      ></FaRegEye>
+                    ) : (
+                      <FaRegEyeSlash
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-4 bottom-3 text-lg text-black opacity-50 cursor-pointer"
+                      ></FaRegEyeSlash>
+                    )}
                   </div>
                   {errors.password && <span>Invalid password</span>}
                 </div>
@@ -131,12 +144,18 @@ const Login = () => {
               {/* Login with google and facebook*/}
               <div className="grid gap-4 md:gap-6 lg:gap-10 grid-cols-1 md:grid-cols-2">
                 {/* google */}
-                <button onClick={handleGoogleLogin} className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300"
+                >
                   <FcGoogle></FcGoogle>
                   Login with Google
                 </button>
                 {/* twitter */}
-                <button onClick={handleTwitter} className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button
+                  onClick={handleTwitter}
+                  className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300"
+                >
                   <FaTwitter className="text-[#4D9EF1]"></FaTwitter>
                   Login with twitter
                 </button>

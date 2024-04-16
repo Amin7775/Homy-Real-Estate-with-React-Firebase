@@ -1,6 +1,5 @@
 # Project Title - Homy Real Estate
 ## Project Link : 
-##
 
 Built with    | 
 ------------  |   
@@ -8,6 +7,8 @@ React JS      |
 Tailwind Css  |  
 Daisy UI      | 
 Firebase      | 
+
+##
 
 This is a react/firebase based project where users can see real estate based on Residential places. With the help of firebase users can now log in or register into the website using their email,google account or twitter account and view additional details about the estates. Users can also mark the estates they liked and keep them on a separate page named "Favorites" to easily check up the estates. 
 

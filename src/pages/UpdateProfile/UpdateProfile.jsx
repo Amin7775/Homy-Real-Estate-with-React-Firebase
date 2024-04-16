@@ -3,6 +3,7 @@ import { useContext } from "react";
 // import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthProvider";
 import UpdateProfileViewImage from "./UpdateProfileComps/UpdateProfileViewImage";
+import { toast } from "react-toastify";
 
 const UpdateProfile = () => {
 //   const [showPassword, setShowPassword] = useState(false);
@@ -25,8 +26,10 @@ const UpdateProfile = () => {
     // console.log(password)
     updateUserFromProfile(name,photoURL)
     .then(()=>{
-        console.log("SUccess")
-        window.location.reload()
+      toast("Update Success!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     })
   };
 

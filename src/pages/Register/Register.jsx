@@ -2,24 +2,24 @@ import { useForm } from "react-hook-form";
 
 // import { Link } from "react-router-dom";
 // import LoginTopText from "./LoginComponents/LoginTopText";
-import {  FaTwitter } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import RegisterTopText from "./RegisterComponents/RegisterTopText";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
-
-
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const location = useLocation()
-  const navigation = useNavigate()
+  const location = useLocation();
+  const navigation = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
 
   // context
-  const { createUser,updateUserAfterRegister,googleLogin ,twitterLogin} = useContext(AuthContext);
+  const { createUser, updateUserAfterRegister, googleLogin, twitterLogin } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -33,37 +33,43 @@ const Register = () => {
     const photoURL = data.photoURL;
     const email = data.email;
     const password = data.password;
-    console.log(name,photoURL,email,password);
+    // console.log(name,photoURL,email,password);
     // createUser
-    createUser(email,password)
-    .then((result)=>{
-    //  update user
-    updateUserAfterRegister(name,photoURL)
-    .then(()=>{
-      console.log('updated')
-      console.log(result.user)
-      navigation(location?.state ? location?.state : '/')
-      window.location.reload()
-    })
-    })
-    .catch(error => {
-      console.log(error.message)
-    })
+    createUser(email, password)
+      .then((result) => {
+        //  update user
+        updateUserAfterRegister(name, photoURL).then(() => {
+          toast("Registration Success!");
+          setTimeout(() => {
+            navigation(location?.state ? location?.state : "/");
+            window.location.reload();
+          }, 1500);
+        });
+      })
+      .catch((error) => {
+        toast(error.message)
+      });
   };
-// google login
-  const handleGoogleLogin = () =>{
-    googleLogin()
-    .then(()=>{
-      navigation(location?.state ? location?.state : '/')
-    })
-  }
+  // google login
+  const handleGoogleLogin = () => {
+    googleLogin().then(() => {
+      toast("Registration Success!");
+          setTimeout(() => {
+            navigation(location?.state ? location?.state : "/");
+            
+          }, 1500);
+    });
+  };
   // twitter login
-  const handleTwitter = () =>{
-    twitterLogin()
-    .then(()=>{
-      navigation(location?.state ? location?.state : '/')
-    })
-  }
+  const handleTwitter = () => {
+    twitterLogin().then(() => {
+      toast("Registration Success!");
+          setTimeout(() => {
+            navigation(location?.state ? location?.state : "/");
+            
+          }, 1500);
+    });
+  };
 
   console.log(watch("example"));
   return (
@@ -153,7 +159,6 @@ const Register = () => {
                       Keep me logged in
                     </label>
                   </div>
-                
                 </div>
                 <input
                   type="submit"
@@ -170,12 +175,18 @@ const Register = () => {
               {/* Login with google and twitter*/}
               <div className="grid gap-4 md:gap-6 lg:gap-10 grid-cols-1 md:grid-cols-2">
                 {/* google */}
-                <button onClick={handleGoogleLogin} className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300"
+                >
                   <FcGoogle></FcGoogle>
                   Register with Google
                 </button>
                 {/* twitter */}
-                <button onClick={handleTwitter} className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button
+                  onClick={handleTwitter}
+                  className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300"
+                >
                   <FaTwitter className="text-[#4D9EF1]"></FaTwitter>
                   Register with twitter
                 </button>
