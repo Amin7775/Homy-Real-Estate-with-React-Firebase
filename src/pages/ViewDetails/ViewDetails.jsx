@@ -36,15 +36,12 @@ const ViewDetails = () => {
 
   return (
     <div className="min-h-screen border-b-2 ">
-     
       {/* Banner */}
       <div className="">
-      <BannerViewDetails estate={estate}></BannerViewDetails>
-
+        <BannerViewDetails estate={estate}></BannerViewDetails>
       </div>
       <div className="pt-32 pb-10 bg-[#FEF8F4]">
-     
-      <ViewDetailsFeature estate={estate}></ViewDetailsFeature>
+        <ViewDetailsFeature estate={estate}></ViewDetailsFeature>
       </div>
     </div>
   );

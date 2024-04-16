@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MdOutlineDone } from "react-icons/md";
 import { RxDividerHorizontal } from "react-icons/rx";
+import { getEstateData, setEstatesData } from "../../../../utilities/localStorage";
 
 const ViewDetailsFeature = ({ estate }) => {
   const [showAll, setShowAll] = useState(false);
@@ -20,6 +21,18 @@ const ViewDetailsFeature = ({ estate }) => {
     bed,
     bath,
   } = estate;
+
+  const handleAddToFavorites = () =>{
+    const getData = getEstateData()
+    console.log("Clicked ")
+    const checkEstateExists = getData?.find(singleEstate => singleEstate.id == id)
+
+    if(checkEstateExists){
+      console.log("Exists")
+    }else{
+      setEstatesData(estate)
+    }
+  }
 
   return (
     <div className="max-w-[90%] mx-auto px-2 grid grid-cols-1 lg:grid-cols-3 gap-10 pt-5 ">
@@ -58,14 +71,14 @@ const ViewDetailsFeature = ({ estate }) => {
               {showAll ? (
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="btn bg-custom-text-1 hover:bg-black text-white px-8 h-full py-1 text-lg"
+                  className="btn bg-custom-text-1 hover:bg-custom-text-2 text-white px-8 h-full py-1 text-lg"
                 >
                   View Less
                 </button>
               ) : (
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="btn bg-custom-text-1 hover:bg-black text-white px-8 h-full py-1 text-lg"
+                  className="btn bg-custom-text-1 hover:bg-custom-text-2 text-white px-8 h-full py-1 text-lg"
                 >
                   View More
                 </button>
@@ -137,7 +150,7 @@ const ViewDetailsFeature = ({ estate }) => {
         </div>
       </div>
       {/* right */}
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full gap-6">
         {/* image section */}
         <div className="bg-white p-7 rounded-3xl drop-shadow-md w-full">
           <h1 className="text-2xl font-semibold text-center mb-5">Images</h1>
@@ -153,6 +166,10 @@ const ViewDetailsFeature = ({ estate }) => {
               alt=""
             />
           </div>
+        </div>
+        {/* add to favorites */}
+        <div className="">
+              <button onClick={handleAddToFavorites} className="btn bg-custom-text-1 text-xl text-white w-full h-full py-3 rounded-xl hover:bg-custom-text-2">Add To Favorites</button>
         </div>
       </div>
     </div>

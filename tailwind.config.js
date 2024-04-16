@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         'custom-text-1': '#F46926',
+        'custom-text-2': '#F34126',
    
       }
     }

@@ -99,7 +99,7 @@ const EstatesSearch = () => {
               </div>
               {/* 6 search */}
               <div className="w-full border-b-2  border-slate-200 pr-0  py-1 lg:py-2">
-                <button className="w-full btn bg-custom-text-1 text-white text-2xl py-2 h-full font-semibold mb-1 hover:bg-black ">
+                <button className="w-full btn bg-custom-text-1 text-white text-2xl py-2 h-full font-semibold mb-1 hover:bg-custom-text-2 ">
                     Search
                 </button>
               </div>

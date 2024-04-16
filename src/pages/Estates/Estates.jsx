@@ -63,14 +63,14 @@ const Estates = () => {
             {showAll ? (
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="btn bg-custom-text-1 hover:bg-black text-white px-8 h-full py-1 text-lg"
+                className="btn bg-custom-text-1 hover:bg-custom-text-2 text-white px-8 h-full py-1 text-lg"
               >
                 View Less
               </button>
             ) : (
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="btn bg-custom-text-1 hover:bg-black text-white px-8 h-full py-1 text-lg"
+                className="btn bg-custom-text-1 hover:bg-custom-text-2 text-white px-8 h-full py-1 text-lg"
               >
                 View More
               </button>
