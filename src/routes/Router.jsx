@@ -5,6 +5,7 @@ import Estates from "../pages/Estates/Estates"
 import UpdateProfile from "../pages/UpdateProfile/UpdateProfile"
 import ViewDetails from "../pages/ViewDetails/ViewDetails"
 import Login from "../pages/Login/Login"
+import Register from "../pages/Register/Register"
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
         ]
     }
