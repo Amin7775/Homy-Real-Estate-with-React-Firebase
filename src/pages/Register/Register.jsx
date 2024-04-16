@@ -4,12 +4,16 @@ import { useForm } from "react-hook-form";
 // import LoginTopText from "./LoginComponents/LoginTopText";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import RegisterTopText from "./RegisterComponents/RegisterTopText";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  // context
+  const { createUser } = useContext(AuthContext);
 
   const {
     register,
@@ -18,12 +22,25 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const name = data.name;
+    const photoURL = data.photoURL;
+    const email = data.email;
+    const password = data.password;
+    console.log(name,photoURL,email,password);
+    // createUser
+    createUser(name,photoURL,email,password)
+    .then((result)=>{
+      console.log(result.user)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  };
 
   console.log(watch("example"));
   return (
     <div className="min-h-screen bg-[#F4EDE8] pb-12">
-     
       <div className=" min-h-[95vh] rounded-3xl overflow-hidden w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto   flex justify-center items-center pt-10">
         <div className=" w-full bg-white rounded-3xl ">
           <div className="max-w-[80%] py-14 mx-auto">

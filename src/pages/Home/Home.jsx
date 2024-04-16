@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import Advantages from "./HomeComponents/Advantages/Advantages";
 import ContactUs from "./HomeComponents/ContactUs/ContactUs";
 import ExploreLocation from "./HomeComponents/ExploreLocation/ExploreLocation";
@@ -6,11 +5,8 @@ import Header from "./HomeComponents/Header";
 import HomeEstates from "./HomeComponents/HomeEstates/HomeEstates";
 import IdealHome from "./HomeComponents/IdealHome/IdealHome";
 import Reviews from "./HomeComponents/Reviews/Reviews";
-import { AuthContext } from "../../provider/AuthProvider";
 
 const Home = () => {
-  const {name} = useContext(AuthContext)
-  console.log(name)
   return (
     <div>
       <Header></Header>
@@ -22,8 +18,8 @@ const Home = () => {
       <div className="max-w-[95%] mx-auto">
         <ExploreLocation></ExploreLocation>
       </div>
-    <HomeEstates></HomeEstates>
-    <ContactUs></ContactUs>
+      <HomeEstates></HomeEstates>
+      <ContactUs></ContactUs>
     </div>
   );
 };

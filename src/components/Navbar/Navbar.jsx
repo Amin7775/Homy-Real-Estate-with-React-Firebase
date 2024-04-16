@@ -1,12 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../../assets/img/Logo.svg";
 import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user, "from nav");
   const links = (
     <>
-      <li className="text-xl font-medium " >
-        <NavLink  to={"/"}>Home</NavLink>
+      <li className="text-xl font-medium ">
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li className="text-xl font-medium">
         <NavLink to={"/estates"}>Estates</NavLink>
@@ -50,8 +54,8 @@ const Navbar = () => {
           </ul>
         </div> */}
         <p className="btn btn-ghost">
-          <Link to={'/'}>
-          <img className="" src={logo} alt="" />
+          <Link to={"/"}>
+            <img className="" src={logo} alt="" />
           </Link>
         </p>
       </div>
@@ -61,10 +65,46 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {/* user profile */}
+        {user ? (
+          <div className="dropdown dropdown-end tooltip tooltip-left" data-tip={`${user.displayName}`}>
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  title={user.displayName}
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to={"/login"}>
+            <p className="btn bg-custom-text-1 hover:black text-white">Login</p>
+          </Link>
+        )}
         {/* btn */}
-        <Link to={"/login"}>
-          <p className="btn">Button</p>
-        </Link>
+
         {/* dropdown */}
         <div className="dropdown bg-custom-text-1 rounded-md">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
