@@ -21,6 +21,22 @@ const Register = () => {
   const { createUser, updateUserAfterRegister, googleLogin, twitterLogin } =
     useContext(AuthContext);
 
+  // validate Pw
+  const validatePassword = (password) => {
+    // Regular expressions to check for uppercase, lowercase, and minimum length
+    const uppercaseRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    const lengthRegex = /.{6,}/;
+
+    if (!uppercaseRegex.test(password)) {
+      return toast("Password must contain at least one uppercase letter.");
+    } else if (!lowercaseRegex.test(password)) {
+      return toast("Password must contain at least one lowercase letter.");
+    } else if (!lengthRegex.test(password)) {
+      return toast("Password must be at least 6 characters long.");
+    }
+  };
+
   const {
     register,
     handleSubmit,
@@ -33,6 +49,8 @@ const Register = () => {
     const photoURL = data.photoURL;
     const email = data.email;
     const password = data.password;
+
+    validatePassword(password);
     // console.log(name,photoURL,email,password);
     // createUser
     createUser(email, password)
@@ -47,27 +65,28 @@ const Register = () => {
         });
       })
       .catch((error) => {
-        toast(error.message)
+        toast("We couldn't register your account, Please try again later")
+        setTimeout(() => {
+          toast(error.message)
+        }, 1500);
       });
   };
   // google login
   const handleGoogleLogin = () => {
     googleLogin().then(() => {
       toast("Registration Success!");
-          setTimeout(() => {
-            navigation(location?.state ? location?.state : "/");
-            
-          }, 1500);
+      setTimeout(() => {
+        navigation(location?.state ? location?.state : "/");
+      }, 1500);
     });
   };
   // twitter login
   const handleTwitter = () => {
     twitterLogin().then(() => {
       toast("Registration Success!");
-          setTimeout(() => {
-            navigation(location?.state ? location?.state : "/");
-            
-          }, 1500);
+      setTimeout(() => {
+        navigation(location?.state ? location?.state : "/");
+      }, 1500);
     });
   };
 
@@ -93,7 +112,7 @@ const Register = () => {
                     {...register("name", { required: true, min: 4 })}
                     placeholder="Enter Your Name Here"
                   />
-                  {errors.password && (
+                  {errors.name && (
                     <span>Name must be more than 3 words</span>
                   )}
                 </div>
@@ -116,7 +135,7 @@ const Register = () => {
                     {...register("email", { required: true })}
                     placeholder="Enter Your Email Here"
                   />
-                  {errors.password && <span>Please enter a valid email</span>}
+                  {errors.email && <span>Please enter a valid email</span>}
                 </div>
                 {/* password */}
                 <div className="flex flex-col gap-2 mb-4">

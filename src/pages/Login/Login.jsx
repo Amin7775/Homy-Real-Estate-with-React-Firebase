@@ -35,7 +35,10 @@ const Login = () => {
         }, 1500);
       })
       .catch((error) => {
-        toast(error.message)
+        toast("Error logging in, Please try again later",error.message)
+        setTimeout(() => {
+          toast(error.message)
+        }, 1500);
       });
   };
 
@@ -81,7 +84,7 @@ const Login = () => {
                     {...register("email", { required: true })}
                     placeholder="Enter Your Email Here"
                   />
-                  {errors.password && <span>Please enter a valid email</span>}
+                  {errors.email && <span>Please enter a valid email</span>}
                 </div>
                 {/* password */}
                 <div className="flex flex-col gap-2 mb-4">
