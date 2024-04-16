@@ -1,14 +1,14 @@
 import { useForm } from "react-hook-form";
 // import { Link } from "react-router-dom";
 import LoginTopText from "./LoginComponents/LoginTopText";
-import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
-import { FaRegEye,FaRegEyeSlash  } from "react-icons/fa6";
+import { useContext, useState } from "react";
+import { FaRegEye,FaRegEyeSlash, FaTwitter  } from "react-icons/fa6";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const { loginUser,googleLogin ,twitterLogin } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -16,7 +16,29 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    
+    const email = data.email;
+    const password = data.password;
+    
+    // login
+    loginUser(email,password)
+    .then(result => {
+      console.log(result.user)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  };
+
+  // google login
+  const handleGoogleLogin = () =>{
+    googleLogin()
+  }
+  // twitter login
+  const handleTwitter = () =>{
+    twitterLogin()
+  }
 
   console.log(watch("example")); // watch input value by passing the name of it
 
@@ -98,14 +120,14 @@ const Login = () => {
               {/* Login with google and facebook*/}
               <div className="grid gap-4 md:gap-6 lg:gap-10 grid-cols-1 md:grid-cols-2">
                 {/* google */}
-                <button className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button onClick={handleGoogleLogin} className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
                   <FcGoogle></FcGoogle>
                   Login with Google
                 </button>
-                {/* facebook */}
-                <button className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
-                  <FaFacebook className="text-[#455FFE]"></FaFacebook>
-                  Login with Facebook
+                {/* twitter */}
+                <button onClick={handleTwitter} className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                  <FaTwitter className="text-[#4D9EF1]"></FaTwitter>
+                  Login with twitter
                 </button>
               </div>
             </div>

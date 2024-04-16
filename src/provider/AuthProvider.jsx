@@ -5,11 +5,17 @@ import {
   onAuthStateChanged,
   updateProfile,
   signOut,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
+import { TwitterAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -18,12 +24,26 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // update current user after register
-  const updateUserAfterRegister = (name, photoURL, email, password) => {
+  const updateUserAfterRegister = (name, photoURL) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
     });
   };
+  // sign in with email and password
+  const loginUser = (email,password) =>{
+    return signInWithEmailAndPassword(auth,email,password)
+  }
+
+  // google login
+  const googleLogin = () => {
+    return signInWithPopup(auth,googleProvider)
+  }
+
+  //twitter login
+  const twitterLogin = () =>{
+    return signInWithPopup(auth,twitterProvider)
+  }
 
   // User State
   useEffect(() => {
@@ -44,6 +64,9 @@ const AuthProvider = ({ children }) => {
     createUser,
     updateUserAfterRegister,
     logOut,
+    loginUser,
+    googleLogin,
+    twitterLogin
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

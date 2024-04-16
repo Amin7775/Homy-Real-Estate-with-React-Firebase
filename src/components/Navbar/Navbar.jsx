@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log(user, "from nav");
   const links = (
     <>
@@ -18,8 +18,15 @@ const Navbar = () => {
       <li className="text-xl font-medium">
         <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       </li>
+      <li className="text-xl font-medium">
+        <NavLink to={"/updateProfile"}>Favorites</NavLink>
+      </li>
     </>
   );
+
+  const handleLogOut = () =>{
+    logOut()
+  }
 
   return (
     <div
@@ -67,37 +74,49 @@ const Navbar = () => {
       <div className="navbar-end">
         {/* user profile */}
         {user ? (
-         
-          <div className="dropdown dropdown-end ">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-left mt-2 mr-3"
-              data-tip={`${user.displayName}`}
-            >
-              <div className="w-full rounded-full h-full ">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user.photoURL ? `${user.photoURL}` : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
-                />
+          <div className="flex items-center">
+            <div className="dropdown dropdown-end ">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mt-2 mr-3"
+                data-tip={`${user.displayName}`}
+              >
+                <div className="w-full rounded-full h-full ">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={
+                      user.photoURL
+                        ? `${user.photoURL}`
+                        : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    }
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content drop-shadow-md mt-1 z-[1] p-2 shadow bg-[#FEF8F4] rounded-xl w-52"
+              >
+                <li className=" text-xl font-medium">
+                  <a>Profile</a>
+                </li>
+                <li className=" text-xl font-medium">
+                  <a>Settings</a>
+                </li>
+                <li className=" text-xl font-medium">
+                  <a onClick={() => logOut()}>Logout</a>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content drop-shadow-md mt-1 z-[1] p-2 shadow bg-[#FEF8F4] rounded-xl w-52"
-            >
-              <li className=" text-xl font-medium"><a>Profile</a></li>
-              <li className=" text-xl font-medium">
-                <a>Settings</a>
-              </li>
-              <li className=" text-xl font-medium">
-                <a onClick={()=>logOut()}>Logout</a>
-              </li>
-            </ul>
+            <p onClick={handleLogOut} className="btn bg-custom-text-1 hover:black text-white px-5 lg:px-10 mr-3 hover:bg-[#F34126] text-sm lg:text-xl py-1 lg:py-2 h-full rounded-md">
+              Logout
+            </p>
           </div>
         ) : (
           <Link to={"/login"}>
-            <p className="btn bg-custom-text-1 hover:black text-white">Login</p>
+            <p className="btn bg-custom-text-1 hover:black text-white px-10 mr-3 hover:bg-[#F34126] text-xl py-2 h-full">
+              Login
+            </p>
           </Link>
         )}
         {/* btn */}

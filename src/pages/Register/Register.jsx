@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 // import { Link } from "react-router-dom";
 // import LoginTopText from "./LoginComponents/LoginTopText";
-import { FaFacebook } from "react-icons/fa6";
+import {  FaTwitter } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
@@ -10,11 +10,12 @@ import RegisterTopText from "./RegisterComponents/RegisterTopText";
 import { AuthContext } from "../../provider/AuthProvider";
 
 
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   // context
-  const { createUser,updateUserAfterRegister } = useContext(AuthContext);
+  const { createUser,updateUserAfterRegister,googleLogin ,twitterLogin} = useContext(AuthContext);
 
   const {
     register,
@@ -37,13 +38,21 @@ const Register = () => {
     .then(()=>{
       console.log('updated')
       console.log(result.user)
-      
+      window.location.reload()
     })
     })
     .catch(error => {
       console.log(error.message)
     })
   };
+// google login
+  const handleGoogleLogin = () =>{
+    googleLogin()
+  }
+  // twitter login
+  const handleTwitter = () =>{
+    twitterLogin()
+  }
 
   console.log(watch("example"));
   return (
@@ -147,17 +156,17 @@ const Register = () => {
                 <span className="">OR</span>
                 <hr className="flex-grow border-t-2 border-slate-300" />
               </div>
-              {/* Login with google and facebook*/}
+              {/* Login with google and twitter*/}
               <div className="grid gap-4 md:gap-6 lg:gap-10 grid-cols-1 md:grid-cols-2">
                 {/* google */}
-                <button className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                <button onClick={handleGoogleLogin} className="bg-transparent btn hover:bg-[#F0F0F0] text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
                   <FcGoogle></FcGoogle>
                   Register with Google
                 </button>
-                {/* facebook */}
-                <button className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
-                  <FaFacebook className="text-[#455FFE]"></FaFacebook>
-                  Register with Facebook
+                {/* twitter */}
+                <button onClick={handleTwitter} className="bg-transparent btn hover:bg-[#F0F0F0]  text-base md:text-xl font-normal py-3 drop-shadow-sm h-full border-slate-300">
+                  <FaTwitter className="text-[#4D9EF1]"></FaTwitter>
+                  Register with twitter
                 </button>
               </div>
             </div>
