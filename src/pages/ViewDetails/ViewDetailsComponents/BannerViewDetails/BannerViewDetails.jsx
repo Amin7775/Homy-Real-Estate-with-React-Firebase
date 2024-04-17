@@ -24,7 +24,9 @@ const BannerViewDetails = ({estate}) => {
         {/* dark effect */}
         <div className="absolute inset-0 bg-black opacity-25 z-10"></div>
         {/* text content */}
-        <div className="absolute inset-0 h-full w-[90%] mx-auto flex flex-col justify-center items-center z-20">
+        <div className="absolute inset-0 h-full w-[90%] mx-auto flex flex-col justify-center items-center z-20" data-aos="fade-zoom-in"
+    data-aos-easing="linear"
+    data-aos-delay="500">
           <h1 className="drop-shadow-2xl text-white text-base md:text-xl lg:text-2xl mb-3 lg:mb-4 text-wrap text-center">
             {estateLocation?.toUpperCase()}
           </h1>
@@ -33,7 +35,9 @@ const BannerViewDetails = ({estate}) => {
           </h1>
         </div>
         {/* Banner Details Box */}
-        <div className="absolute w-full  z-30 -bottom-28 lg:-bottom-[70px]">
+        <div className="absolute w-full  z-30 -bottom-28 lg:-bottom-[70px]" data-aos="fade-zoom-in"
+    data-aos-easing="linear"
+    data-aos-delay="200">
             <div className="w-[95%] lg:w-[70%] bg-white px-7 py-10 mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-black font-sans gap-y-5 lg:gap-1 drop-shadow-xl">
                 <div className="flex flex-col font-medium justify-center items-center gap-2">
                     <p className="text-lg">Name </p>

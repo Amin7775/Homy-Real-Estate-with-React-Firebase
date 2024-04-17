@@ -4,10 +4,10 @@ import HomeSlider from "./slider/HomeSlider";
 
 const Header = () => {
   return (
-    <div>
+    <div >
       <Topbar></Topbar>
           {/* <Navbar transparent={false}></Navbar> */}
-      <div className="relative">
+      <div className="relative" >
         <div className="absolute z-10 w-full">
         </div>
         <div className="z-0">

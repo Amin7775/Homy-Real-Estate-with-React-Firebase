@@ -5,7 +5,9 @@ import img3 from './../../../../assets/img/Advantages/advantages_3.svg'
 
 const Advantages = () => {
     return (
-        <div className='py-14 container mx-auto'>
+        <div className='py-14 container mx-auto' data-aos="fade-zoom-in"
+        data-aos-easing="linear"
+        data-aos-delay="100">
           
           <TitleText title={"Unlock Homy's advantages"} description={'Your trusted real estate partner in every transaction'}></TitleText>
           <div className='mt-14 flex flex-col lg:flex-row gap-7 lg:gap-5'>

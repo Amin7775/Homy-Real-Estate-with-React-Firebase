@@ -15,7 +15,12 @@ const Estates = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F4EDE8]">
+    <div
+      className="min-h-screen bg-[#F4EDE8]"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+    >
       <Helmet>
         <title>Homy - All Estates</title>
       </Helmet>
@@ -63,7 +68,12 @@ const Estates = () => {
                   ))}
           </div>
           {/* btn */}
-          <div className="flex justify-center mt-10">
+          <div
+            className="flex justify-center mt-10"
+            data-aos="fade-zoom-in"
+            data-aos-easing="linear"
+            data-aos-delay="100"
+          >
             {showAll ? (
               <button
                 onClick={() => setShowAll(!showAll)}

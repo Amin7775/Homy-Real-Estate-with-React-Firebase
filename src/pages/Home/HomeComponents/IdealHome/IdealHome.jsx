@@ -4,7 +4,10 @@ import shape from "./../../../../assets/img/HomePage/shape_ideal_home.svg";
 
 const IdealHome = () => {
   return (
-    <div className="bg-[#FEF8F4] h-full w-full">
+    <div className="bg-[#FEF8F4] h-full w-full" data-aos="fade-zoom-in"
+    data-aos-easing="linear"
+    data-aos-delay="100"
+    >
     <div
       className="h-screen"
       style={{

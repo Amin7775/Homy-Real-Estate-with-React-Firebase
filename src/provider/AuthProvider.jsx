@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { TwitterAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -87,6 +88,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logOut = () => {
+    toast("Logged Out !")
     return signOut(auth);
   };
 

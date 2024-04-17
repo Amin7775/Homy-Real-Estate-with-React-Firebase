@@ -3,6 +3,8 @@ import logo from "./../../assets/img/Logo.svg";
 import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FaCaretDown } from "react-icons/fa";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -79,7 +81,7 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mt-2 mr-3"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-left mt-2 mr-3 relative"
                 data-tip={`${user.displayName}`}
               >
                 <div className="w-full rounded-full h-full ">
@@ -92,13 +94,14 @@ const Navbar = () => {
                     }
                   />
                 </div>
+                <FaCaretDown className="absolute bottom-0 right-0 border border-black bg-black text-slate-200 rounded-full"></FaCaretDown>
               </div>
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content drop-shadow-md mt-1 z-[1] p-2 shadow bg-[#FEF8F4] rounded-xl w-52"
               >
                 <li className=" text-xl font-medium">
-                  <a>Profile</a>
+                  <Link to={'/updateProfile'}>Profile</Link>
                 </li>
                 <li className=" text-xl font-medium">
                   <a>Settings</a>
@@ -108,14 +111,14 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <p onClick={handleLogOut} className="btn bg-custom-text-1 hover:black text-white px-5 lg:px-10 mr-3 hover:bg-[#F34126] text-sm lg:text-xl py-1 lg:py-2 h-full rounded-md">
+            <p onClick={handleLogOut} className="btn bg-custom-text-1 text-white px-5 lg:px-10 mr-3 hover:bg-[#F34126] text-sm lg:text-xl py-1 lg:py-2 h-full rounded-md hidden md:flex">
               Logout
             </p>
           </div>
         ) : (
           <Link to={"/login"}>
-            <p className="btn bg-custom-text-1 hover:black text-white px-10 mr-3 hover:bg-[#F34126] text-xl py-2 h-full">
-              Login
+            <p className="btn bg-custom-text-1 text-white px-6 md:px-10 mr-3 hover:bg-[#F34126] text-sm  md:text-xl py-2 h-full">
+              Login 
             </p>
           </Link>
         )}

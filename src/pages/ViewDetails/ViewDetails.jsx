@@ -36,7 +36,9 @@ const ViewDetails = () => {
   } = estate;
 
   return (
-    <div className="min-h-screen border-b-2 ">
+    <div className="min-h-screen border-b-2 " data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="500">
       <Helmet>
         <title>Homy - {`${estate_title}`} Details</title>
       </Helmet>

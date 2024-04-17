@@ -7,7 +7,9 @@ const Favorites = () => {
     const favoritesData = getEstateData()
     console.log(favoritesData)
   return (
-    <div className="bg-[#F4EDE8] min-h-screen border-b py-10">
+    <div className="bg-[#F4EDE8] min-h-screen border-b py-10" data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="500">
       <Helmet>
         <title>Homy - Favorites</title>
       </Helmet>

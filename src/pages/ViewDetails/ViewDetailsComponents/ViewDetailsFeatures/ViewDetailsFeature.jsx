@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { MdOutlineDone } from "react-icons/md";
 import { RxDividerHorizontal } from "react-icons/rx";
-import { getEstateData, setEstatesData } from "../../../../utilities/localStorage";
+import {
+  getEstateData,
+  setEstatesData,
+} from "../../../../utilities/localStorage";
 import { toast } from "react-toastify";
 
 const ViewDetailsFeature = ({ estate }) => {
@@ -23,34 +26,52 @@ const ViewDetailsFeature = ({ estate }) => {
     bath,
   } = estate;
 
-  const handleAddToFavorites = () =>{
-    const getData = getEstateData()
-    console.log("Clicked ")
-    const checkEstateExists = getData?.find(singleEstate => singleEstate.id == id)
+  const handleAddToFavorites = () => {
+    const getData = getEstateData();
+    console.log("Clicked ");
+    const checkEstateExists = getData?.find(
+      (singleEstate) => singleEstate.id == id
+    );
 
-    if(checkEstateExists){
+    if (checkEstateExists) {
       toast("This estate already exists in favorites");
-         
-    }else{
+    } else {
       toast("Successfully added this estate in favorites");
-      setEstatesData(estate)
+      setEstatesData(estate);
     }
-  }
+  };
 
   return (
     <div className="max-w-[90%] mx-auto px-2 grid grid-cols-1 lg:grid-cols-3 gap-10 pt-5 ">
       {/* left */}
-      <div className="lg:col-span-2 flex flex-col gap-14 mt-5 lg:mt-0">
+      <div
+        className="lg:col-span-2 flex flex-col gap-14 mt-5 lg:mt-0"
+        data-aos="fade-zoom-in"
+        data-aos-easing="linear"
+        data-aos-delay="150"
+      >
         {/* overview */}
-        <div className="bg-white rounded-3xl p-10 drop-shadow-md">
+        <div
+          className="bg-white rounded-3xl p-10 drop-shadow-md"
+          data-aos="fade-zoom-in"
+          data-aos-easing="linear"
+          data-aos-delay="150"
+        >
           <h1 className="text-3xl lg:text-4xl font-semibold mb-4">Overview</h1>
           <p className="text-xl lg:text-2xl opacity-80 leading-8 font-light">
             {description}
           </p>
         </div>
         {/* Facilities */}
-        <div className="bg-white rounded-3xl p-10 drop-shadow-md">
-          <h1 className="text-3xl lg:text-4xl font-semibold mb-5">Facilities</h1>
+        <div
+          className="bg-white rounded-3xl p-10 drop-shadow-md"
+          data-aos="fade-zoom-in"
+          data-aos-easing="linear"
+          data-aos-delay="150"
+        >
+          <h1 className="text-3xl lg:text-4xl font-semibold mb-5">
+            Facilities
+          </h1>
           <div className="grid gap-5">
             {showAll
               ? facilities?.map((list, index) => (
@@ -61,7 +82,7 @@ const ViewDetailsFeature = ({ estate }) => {
                     </p>
                   </div>
                 ))
-              : facilities?.slice(0,6).map((list, index) => (
+              : facilities?.slice(0, 6).map((list, index) => (
                   <div key={index} className=" flex  items-center gap-2">
                     <RxDividerHorizontal className="hidden md:block"></RxDividerHorizontal>
                     <p className="text-xl lg:text-2xl opacity-80 leading-8 font-light inline">
@@ -70,7 +91,12 @@ const ViewDetailsFeature = ({ estate }) => {
                   </div>
                 ))}
             {/* btn */}
-            <div className="flex justify-center mt-5">
+            <div
+              className="flex justify-center mt-5"
+              data-aos="fade-zoom-in"
+              data-aos-easing="linear"
+              data-aos-delay="50"
+            >
               {showAll ? (
                 <button
                   onClick={() => setShowAll(!showAll)}
@@ -91,7 +117,12 @@ const ViewDetailsFeature = ({ estate }) => {
         </div>
 
         {/* Amenities */}
-        <div className="bg-white rounded-3xl p-10 drop-shadow-md">
+        <div
+          className="bg-white rounded-3xl p-10 drop-shadow-md"
+          data-aos="fade-zoom-in"
+          data-aos-easing="linear"
+          data-aos-delay="500"
+        >
           <h1 className="text-3xl lg:text-4xl font-semibold mb-5">Amenities</h1>
 
           <div className="flex flex-wrap gap-y-5">
@@ -155,7 +186,12 @@ const ViewDetailsFeature = ({ estate }) => {
       {/* right */}
       <div className="flex flex-col w-full gap-6">
         {/* image section */}
-        <div className="bg-white p-7 rounded-3xl drop-shadow-md w-full">
+        <div
+          className="bg-white p-7 rounded-3xl drop-shadow-md w-full"
+          data-aos="fade-zoom-in"
+          data-aos-easing="linear"
+          data-aos-delay="150"
+        >
           <h1 className="text-2xl font-semibold text-center mb-5">Images</h1>
           <div className="flex flex-col gap-6">
             <img
@@ -171,8 +207,18 @@ const ViewDetailsFeature = ({ estate }) => {
           </div>
         </div>
         {/* add to favorites */}
-        <div className="">
-              <button onClick={handleAddToFavorites} className="btn bg-custom-text-1 text-xl text-white w-full h-full py-3 rounded-xl hover:bg-custom-text-2">Add To Favorites</button>
+        <div
+          className=""
+          data-aos="fade-zoom-in"
+          data-aos-easing="linear"
+          data-aos-delay="300"
+        >
+          <button
+            onClick={handleAddToFavorites}
+            className="btn bg-custom-text-1 text-xl text-white w-full h-full py-3 rounded-xl hover:bg-custom-text-2"
+          >
+            Add To Favorites
+          </button>
         </div>
       </div>
     </div>
@@ -180,4 +226,3 @@ const ViewDetailsFeature = ({ estate }) => {
 };
 
 export default ViewDetailsFeature;
-

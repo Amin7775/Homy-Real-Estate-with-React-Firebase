@@ -28,7 +28,9 @@ const EstatesCard = ({ estate }) => {
   } = estate;
 
   return (
-    <div className="bg-white p-5 rounded-3xl flex flex-col flex-grow">
+    <div className="bg-white p-5 rounded-3xl flex flex-col flex-grow" data-aos="fade-zoom-in"
+    data-aos-easing="linear"
+    data-aos-delay="100">
       <div className="relative">
         <div className="absolute z-10   text-white text-sm top-3 left-3">
           {status == "rent" ? (

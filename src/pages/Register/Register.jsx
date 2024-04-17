@@ -93,7 +93,9 @@ const Register = () => {
 
   console.log(watch("example"));
   return (
-    <div className="min-h-screen bg-[#F4EDE8] pb-12">
+    <div className="min-h-screen bg-[#F4EDE8] pb-12" data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="500">
       <Helmet>
         <title>Homy - Register</title>
       </Helmet>
