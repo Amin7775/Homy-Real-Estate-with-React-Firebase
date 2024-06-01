@@ -17,9 +17,12 @@ const Navbar = () => {
       <li className="text-xl font-medium">
         <NavLink to={"/estates"}>Estates</NavLink>
       </li>
-      <li className="text-xl font-medium">
+      {
+        user && <li className="text-xl font-medium">
         <NavLink to={"/updateProfile"}>Update Profile</NavLink>
       </li>
+      }
+      
       <li className="text-xl font-medium">
         <NavLink to={"/favorites"}>Favorites</NavLink>
       </li>
@@ -29,7 +32,7 @@ const Navbar = () => {
   const handleLogOut = () =>{
     logOut()
   }
-
+  
   return (
     <div
       className={
